@@ -18,7 +18,7 @@ Projetos #boraCodar da Rockeseat
           <td>02</td>
           <td>Product Card</td>
           <td>22/01/2023</td>
-          <td><a href="02">✉</a></td>
+          <td><a href="02">📌</a></td>
         </tr>
       </tbody>
     </table>
