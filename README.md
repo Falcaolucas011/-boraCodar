@@ -2,7 +2,7 @@
 
 Projetos #boraCodar da Rockeseat
 
-[acesse aos desafios clicando aqui](https://boracodar.dev)
+[acesso aos desafios clicando aqui](https://boracodar.dev)
 
 <table>
       <thead>
