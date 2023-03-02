@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
-      />
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Calculadora</title>
-      <link rel="stylesheet" href="style.css" />
-      <script src="script.js"></script>
+    />
   </head>
   <body>
     <div id="calculator">
       <div id="display">
-        <div id="last-calc">1+1</div>
+        <div id="last-calc"></div>
         <div id="result">
           <img src="./assets/equals.svg" alt="firstEquals" />
-          <span>2</span>
+          <span></span>
         </div>
       </div>
       <div id="keyboard">
-        <button id="clear-all" class="secondary">CE</button>
-        <button id="ClearSlot">C</button>
-        <button>
-          <img src="./assets/percent.svg" alt="Percent">
+        <button id="clear-all" value="CE" class="secondary">CE</button>
+        <button id="clear-slot" value="C">C</button>
+        <button id="percent" value="%">
+          <img src="./assets/percent.svg" alt="Percent" />
         </button>
-        <button class="tertiary">
-          <img src="./assets/divide.svg" alt="Divide">
+        <button id="Divd" value="/" class="tertiary">
+          <img src="./assets/divide.svg" alt="Divide" />
         </button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button class="tertiary">
-          <img src="./assets/x.svg" alt="X">
+        <button id="seven" value="7">7</button>
+        <button id="eight" value="8">8</button>
+        <button id="nine" value="9">9</button>
+        <button id="multiply" value="X" class="tertiary">
+          <img src="./assets/x.svg" alt="X" />
         </button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button class="tertiary">
-          <img src="./assets/minus.svg" alt="minustwo">
+        <button id="four" value="4">4</button>
+        <button id="five" value="5">5</button>
+        <button id="six" value="6">6</button>
+        <button id="minus" value="-" class="tertiary">
+          <img src="./assets/minus.svg" alt="minustwo" />
         </button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button class="tertiary">
-          <img src="./assets/plus.svg" alt="plustwo">
+        <button id="one" value="1">1</button>
+        <button id="two" value="2">2</button>
+        <button id="three" value="3">3</button>
+        <button id="plus" value="+"  class="tertiary">
+          <img src="./assets/plus.svg" alt="plustwo" />
         </button>
-        <button>
-          <img src="./assets/andplus.svg" alt="plusandminus">
+        <button id="plusAnd" value="signal">
+          <img src="./assets/andplus.svg" alt="plusandminus" />
         </button>
-        <button>0</button>
-        <button>,</button>
-        <button class="quartiary">
-          <img src="./assets/equalsecond.svg" alt="Equals">
+        <button value="0">0</button>
+        <button id="comma" value=".">,</button>
+        <button id="equals" value="equals" class="quartiary">
+          <img src="./assets/equalsecond.svg" alt="Equals" />
         </button>
       </div>
     </div>

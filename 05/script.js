@@ -1,3 +1,149 @@
 //Var
-//Function
+const OpSelect = document.querySelector('#last-calc');
+const UsedSelect = document.querySelector('#result span');
+const buttons = document.querySelectorAll('#keyboard button');
+
+//Function | Object
+class Calculator {
+  constructor(OpSelect, UsedSelect) {
+    this.OpSelect = OpSelect;
+    this.UsedSelect = UsedSelect;
+    this.currentUse = '';
+  }
+
+    
+  //Number to calculator screen
+  addDigit(digit) {
+    //check current operation
+    if (digit === '.' && this.UsedSelect.innerText.includes('.')) {
+      return;
+    }
+
+    this.currentUse = digit;
+    this.updateScreen();
+  }
+
+  //All operation
+  processOp(operation) {
+    if (this.UsedSelect.innerText === '' && operation !== 'C') {
+      //Change operation
+      if (this.OpSelect.innerText !== '') {
+        this.changeOp(operation);
+      }
+      return;
+    }
+    
+    //Get current value
+    let opValue;
+    const previous = +this.OpSelect.innerText.split(' ')[0];
+    const current = +this.UsedSelect.innerText;
+
+    switch (operation) {
+      case '+':
+        opValue = previous + current;
+        this.updateScreen(opValue, operation, current, previous);
+        break;
+      case '-':
+        opValue = previous - current;
+        this.updateScreen(opValue, '-', current, previous);
+        break;
+      case '/':
+        opValue = previous / current;
+        this.updateScreen(opValue, '/', current, previous);
+        break;
+      case 'X':
+        opValue = previous * current;
+        this.updateScreen(opValue, 'x', current, previous);
+        break;
+      case '%':
+        opValue = (previous * current) / 100;
+        this.updateScreen(opValue, '%', current, previous);
+        break;
+      case 'CE':
+        this.processClearOp();
+        break;
+      case 'C':
+        this.processClearAll();
+        break;
+      case 'equals':
+        this.processEquals();
+        break;
+      default:
+        return;
+    }
+  }
+
+  //Another value
+  updateScreen(
+    opValue = null,
+    operation = null,
+    current = null,
+    previous = null
+  ) {    
+    if (opValue === null) {
+      this.UsedSelect.innerText += this.currentUse;
+    } else {
+      if (previous === 0) {
+        opValue = current;
+      }      
+      if (current !== opValue) {        
+        this.OpSelect.innerText = `${previous} ${operation} ${current}`;
+        this.UsedSelect.innerText = `${opValue}`;
+      } else {
+        this.OpSelect.innerText = `${opValue} ${operation}`;
+        this.UsedSelect.innerText = '';
+      }
+    }
+  }
+  //Change math operation
+  changeOp(operation) {
+    const mathOperations = ['+', '-', '/', 'X', '%'];
+
+    if (!mathOperations.includes(operation)) {
+      return;
+    }
+
+    this.OpSelect.innerText = this.OpSelect.innerText.slice(0, -1) + operation;
+  }
+
+  //Clear current value
+  processClearOp() {
+    const previous = +this.OpSelect.innerText.split(' ')[0];
+    const current = +this.UsedSelect.innerText;
+    if (current>=0 && current !== previous) {
+      console.log("Completo")
+      this.OpSelect.innerText = '';
+      this.UsedSelect.innerText = ''; 
+    } else {
+      console.log("Vazio")
+      this.UsedSelect.innerText = ''; 
+    }  
+    console.log();
+  } 
+
+  //Clear all
+  processClearAll() {
+    this.UsedSelect.innerText = '';
+    this.OpSelect.innerText = '';
+  }
+
+  //Equals
+  processEquals() {
+    let operation = this.OpSelect.innerText.split(' ')[1];
+    this.processOp(operation);
+  }
+}
+
+const calc = new Calculator(OpSelect, UsedSelect);
+
 //Event
+buttons.forEach(btn => {
+  btn.addEventListener('click', e => {
+    const ref = e.target.value;
+    if (+ref >= 0 || ref === '.') {
+      calc.addDigit(ref);
+    } else {
+      calc.processOp(ref);
+    }
+  });
+});
