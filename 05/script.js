@@ -96,7 +96,7 @@ class Calculator {
 
   //Change math operation
   changeOp(operation) {
-    const mathOperations = ['+', '-', '/', 'X', '%'];
+    const mathOperations = ['+', '-', '/', 'x', '%'];
 
     if (!mathOperations.includes(operation)) {
       return;
