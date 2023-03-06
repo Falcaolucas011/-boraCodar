@@ -10,8 +10,6 @@ class Calculator {
     this.UsedSelect = UsedSelect;
     this.currentUse = '';
   }
-
-    
   //Number to calculator screen
   addDigit(digit) {
     //check current operation
@@ -32,7 +30,7 @@ class Calculator {
       }
       return;
     }
-    
+
     //Get current value
     let opValue;
     const previous = +this.OpSelect.innerText.split(' ')[0];
@@ -79,14 +77,14 @@ class Calculator {
     operation = null,
     current = null,
     previous = null
-  ) {    
+  ) {
     if (opValue === null) {
       this.UsedSelect.innerText += this.currentUse;
     } else {
       if (previous === 0) {
         opValue = current;
-      }      
-      if (current !== opValue) {        
+      }
+      if (current !== opValue) {
         this.OpSelect.innerText = `${previous} ${operation} ${current}`;
         this.UsedSelect.innerText = `${opValue}`;
       } else {
@@ -108,18 +106,15 @@ class Calculator {
 
   //Clear current value
   processClearOp() {
-    const previous = +this.OpSelect.innerText.split(' ')[0];
-    const current = +this.UsedSelect.innerText;
-    if (current>=0 && current !== previous) {
-      console.log("Completo")
+    var lastNumber =
+      this.OpSelect.innerText[this.OpSelect.innerText.length - 1];
+    if (lastNumber >= 0) {
+      this.UsedSelect.innerText = '';
       this.OpSelect.innerText = '';
-      this.UsedSelect.innerText = ''; 
     } else {
-      console.log("Vazio")
-      this.UsedSelect.innerText = ''; 
-    }  
-    console.log();
-  } 
+      this.UsedSelect.innerText = '';
+    }
+  }
 
   //Clear all
   processClearAll() {
@@ -131,6 +126,7 @@ class Calculator {
   processEquals() {
     let operation = this.OpSelect.innerText.split(' ')[1];
     this.processOp(operation);
+    return;
   }
 }
 
