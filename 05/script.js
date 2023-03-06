@@ -33,8 +33,8 @@ class Calculator {
 
     //Get current value
     let opValue;
-    const previous = +this.OpSelect.innerText.split(' ')[0];
-    const current = +this.UsedSelect.innerText;
+    let previous = +this.OpSelect.innerText.split(' ')[0];
+    let current = +this.UsedSelect.innerText;
 
     switch (operation) {
       case '+':
@@ -43,19 +43,19 @@ class Calculator {
         break;
       case '-':
         opValue = previous - current;
-        this.updateScreen(opValue, '-', current, previous);
+        this.updateScreen(opValue, operation, current, previous);
         break;
       case '/':
         opValue = previous / current;
-        this.updateScreen(opValue, '/', current, previous);
+        this.updateScreen(opValue, operation, current, previous);
         break;
-      case 'X':
+      case 'x':
         opValue = previous * current;
-        this.updateScreen(opValue, 'x', current, previous);
+        this.updateScreen(opValue, operation, current, previous);
         break;
       case '%':
         opValue = (previous * current) / 100;
-        this.updateScreen(opValue, '%', current, previous);
+        this.updateScreen(opValue, operation, current, previous);
         break;
       case 'CE':
         this.processClearOp();
@@ -93,6 +93,7 @@ class Calculator {
       }
     }
   }
+
   //Change math operation
   changeOp(operation) {
     const mathOperations = ['+', '-', '/', 'X', '%'];
@@ -126,7 +127,6 @@ class Calculator {
   processEquals() {
     let operation = this.OpSelect.innerText.split(' ')[1];
     this.processOp(operation);
-    return;
   }
 }
 
