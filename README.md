@@ -20,5 +20,17 @@ Projetos #boraCodar da Rockeseat
           <td>22/01/2023</td>
           <td><a href="02">📌</a></td>
         </tr>
+        <tr>
+          <td>05</td>
+          <td>Calculadora</td>
+          <td>06/03/2023</td>
+          <td><a href="05">📌</a></td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td>Cartão de embarque</td>
+          <td>02/03/2023</td>
+          <td><a href="06">📌</a></td>
+        </tr>
       </tbody>
     </table>
